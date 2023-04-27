@@ -1,4 +1,4 @@
-import { CartService } from './../../services/cart.service';
+import { CartService } from "./../../services/cart.service";
 import { Component, OnInit, Input } from "@angular/core";
 import { Cart, CartItem } from "src/app/models/cart.model";
 
@@ -27,5 +27,8 @@ export class HeaderComponent implements OnInit {
 
     getTotal(items: Array<CartItem>): number {
         return this.cartService.getTotal(items);
+    }
+    clearCart() {
+        this.cartService.clearCart();
     }
 }

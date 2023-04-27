@@ -20,7 +20,7 @@
                     *ngFor="let item of cart.items"
                     class="flex justify-between font-light mb-2"
                 >
-                    {{ item.name }} * {{ item.quantity }}
+                    {{ item.name }} x {{ item.quantity }}
                     <span class="font-bold">{{
                         item.price | currency : "ZAR"
                     }}</span>
@@ -31,7 +31,7 @@
                 <span class="font-bold">{{ getTotal(cart.items) | currency : "ZAR" }}</span>
             </div>
             <div class="pt-3 flex justify-between">
-                <button class="bg-red-600 text-white rounded-full w-9 h-9">
+                <button (click)="clearCart()" class="bg-red-600 text-white rounded-full w-9 h-9">
                     <mat-icon>remove_shopping_cart</mat-icon>
                 </button>
                 <button
