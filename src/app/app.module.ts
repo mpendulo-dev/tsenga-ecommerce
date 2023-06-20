@@ -1,6 +1,7 @@
 import { CartService } from './services/cart.service';
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -31,6 +32,7 @@ import { ProductsService } from './services/products.service';
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
+        HttpClientModule,
         MatSidenavModule,
         MatGridListModule,
         MatMenuModule,
