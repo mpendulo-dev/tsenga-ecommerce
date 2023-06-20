@@ -14,7 +14,13 @@ export class ProductsService {
   
   constructor(private http: HttpClient) { }
 
-  getAllProducts(limit = 12, sort = 'desc'): Observable<Product[]> {
-    return this.http.get<Product[]>(`${PRODUCTS_URL}/products?sort=${sort}&limit=${limit}`);
+  //category is optional
+  getAllProducts(limit = 12, sort = 'desc', category?: string): Observable<Product[]> {
+    return this.http.get<Product[]>(`${PRODUCTS_URL}/products${
+      category? '/category/' + category : ''
+    }?sort=${sort}&limit=${limit}`);
+  }
+  getAllCategories(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(`${PRODUCTS_URL}/products/categories`);
   }
 }

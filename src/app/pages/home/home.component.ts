@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
     onShowCategory(newCategory: string): void {
         this.category = newCategory;
+        this.getProducts();
     }
     changeItemsCount(itemsCount: number): void {
         this.count = itemsCount;
@@ -56,7 +57,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         });
     }
     getProducts() {
-       this.productSubscription = this.productsService.getAllProducts(this.count, this.sort).subscribe(_products => {
+       this.productSubscription = this.productsService.getAllProducts(this.count, this.sort, this.category).subscribe(_products => {
             console.log(_products);   
             this.products = _products;   
         })
