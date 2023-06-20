@@ -12,9 +12,15 @@ export class HomeComponent implements OnInit {
     cols = 3;
     rowHeight = ROWS_HEIGHT[this.cols];
     category: string | undefined;
+
+    //Products from API
+    products: Array<Product> = [];
+    
     constructor(private cartService: CartService) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+
+    }
 
     changeLayout(colsNum: number): void {
         this.cols = colsNum;
