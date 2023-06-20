@@ -38,6 +38,14 @@ export class HomeComponent implements OnInit, OnDestroy {
     onShowCategory(newCategory: string): void {
         this.category = newCategory;
     }
+    changeItemsCount(itemsCount: number): void {
+        this.count = itemsCount;
+        this.getProducts();
+    }
+    changeSort(sort: string): void {
+        this.sort = sort;
+        this.getProducts();
+    }
     onAddToCart(product: Product): void {
         this.cartService.addToCart({
             product: product.image,

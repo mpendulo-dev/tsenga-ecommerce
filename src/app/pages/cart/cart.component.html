@@ -4,6 +4,7 @@
             <th mat-header-cell *matHeaderCellDef>Product</th>
             <td mat-cell *matCellDef="let element">
                 <img
+                    mat-card-sm-image
                     src="{{ element.product }}"
                     alt="product"
                     class="w-[100px] my-5"
@@ -25,7 +26,7 @@
         <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef>Price</th>
             <td mat-cell *matCellDef="let element">
-                {{ element.price | currency : "ZAR" }}
+                {{ element.price | currency : "R" }}
             </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
@@ -45,11 +46,11 @@
         <ng-container matColumnDef="total">
             <th mat-header-cell *matHeaderCellDef>Total</th>
             <td mat-cell *matCellDef="let element">
-                {{ element.quantity * element.price | currency : "ZAR" }}
+                {{ element.quantity * element.price | currency : "R" }}
             </td>
             <td mat-footer-cell *matFooterCellDef>
                 <span class="font-bold py-5 block">{{
-                    getTotal(cart.items) | currency : "ZAR"
+                    getTotal(cart.items) | currency : "R"
                 }}</span>
             </td>
         </ng-container>
