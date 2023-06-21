@@ -12,8 +12,10 @@ export class CartService {
     constructor(private _snackBar: MatSnackBar) {}
 
     addToCart(item: CartItem): void {
+        //Spread Operator(...) -  copy all or part of an existing array or object into another array or object.
         const items = [...this.cart.value.items];
 
+        //Check if item is already in the cart. and if true update quantity
         const ItemsInCart = items.find((_item) => _item.id === item.id);
         if (ItemsInCart) {
             ItemsInCart.quantity += 1;
@@ -23,7 +25,6 @@ export class CartService {
 
         this.cart.next({ items });
         this._snackBar.open("1 Item added to cart", "Ok", { duration: 3000 });
-        // console.log(this.cart.value);
     }
 
     getTotal(items: Array<CartItem>): number {
